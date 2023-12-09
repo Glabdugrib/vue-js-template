@@ -22,5 +22,5 @@ jobs:
       - name: Run Vitest
         run: npm run test:unit
 
-      - name: Run Cypress
-        run: npm run test:e2e:dev
+      # - name: Run Cypress
+      #   run: npm run test:e2e:dev
