@@ -1,0 +1,26 @@
+name: CI
+
+on: push
+
+jobs:
+  test:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.5
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Vitest
+        run: npm run test:unit
+
+      - name: Run Cypress
+        run: npm run test:e2e:dev
